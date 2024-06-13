@@ -6,6 +6,14 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import { LoaderFunction } from "@remix-run/node";
+
+export const loader: LoaderFunction = ({ request }) => {
+  const values = request.headers.getSetCookie();
+  console.log(values);
+
+  return {};
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
